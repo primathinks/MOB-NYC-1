@@ -3,15 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ga-lockup-61c4920d0981703871ab3256bc786a2f.png"
+      "filename" : "prima-fuzzy-2.jpg"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "prima-fuzzy-1.jpg"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "prima-fuzzy.jpg"
     }
   ],
   "info" : {
