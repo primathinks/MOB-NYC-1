@@ -15,11 +15,57 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZk-uA-7vV">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oqF-cg-i9D"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVp-9P-6Fe">
+                                <rect key="frame" x="277" y="376" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="oha-T4-DQl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="xZk-uA-7vV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="UOF-Bj-Oca"/>
+                            <constraint firstItem="jVp-9P-6Fe" firstAttribute="leading" secondItem="xZk-uA-7vV" secondAttribute="leading" id="j6A-g6-2sR"/>
+                            <constraint firstItem="jVp-9P-6Fe" firstAttribute="top" secondItem="xZk-uA-7vV" secondAttribute="bottom" constant="61" id="mo8-Zi-Vg4"/>
+                            <constraint firstItem="xZk-uA-7vV" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="wt8-TV-LMI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myLabel" destination="jVp-9P-6Fe" id="W2C-qK-7wS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AAk-5s-Vde">
+            <objects>
+                <viewController id="bIS-zI-mJ4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ykz-8j-F4x"/>
+                        <viewControllerLayoutGuide type="bottom" id="kub-Hx-fRD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ht9-pw-dwM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFc-gQ-OhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

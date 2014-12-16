@@ -1,6 +1,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var myLabel: UILabel!
+    
+    @IBAction func didTapButton(sender: AnyObject) {
+        self.view.backgroundColor = UIColor.redColor()
+        myLabel.text = "Tapped!"
+    }
+    
     // Functions of use for this exercise:
     // Translating a string to an integer: "1".toInt()
     // Getting the text from a text field: let text = textFieldName.text
