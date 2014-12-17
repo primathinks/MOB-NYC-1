@@ -9,6 +9,78 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var mainLabel: UILabel!
+    
+    func isValidated() -> Bool{
+        var validated:Bool = true
+        
+        if nameTextField.text.isEmpty || ageTextField.text.isEmpty {
+            validated = false
+        }
+        return validated
+    }
+    
+    func updateLabel(str: String) {
+        mainLabel.text = str
+    }
+    
+    func greetUser() {
+        var userName: String = nameTextField.text
+        var userAge: String = ageTextField.text
+        var greeting: String = "Hello \(userName), you are \(userAge) years old!"
+        updateLabel(greeting)
+    }
+    
+    // Displays one or more sentences
+    func listFreedom1() {
+        var numAge = ageTextField.text.toInt()
+        var freedom: String = "\(mainLabel.text!)\n"
+ 
+        if numAge >= 16 {
+            freedom += "You can drive. "
+        }
+        if numAge >= 18 {
+            freedom += "You can vote. "
+        }
+        if numAge >= 21 {
+            freedom += "You can drink. "
+        }
+    
+        updateLabel(freedom)
+    }
+    
+    // Displays one sentence only
+    func listFreedom2() {
+        var numAge = ageTextField.text.toInt()
+        var freedom: String = "\(mainLabel.text!)\n"
+        freedom += "You can "
+        
+        if numAge >= 21 {
+            freedom += "drive, vote and drink (but not at the same time!"
+        } else if numAge >= 18 {
+            freedom += "drive and vote."
+        } else if numAge >= 16 {
+            freedom += "drive"
+        } else {
+            freedom += "do nothing."
+        }
+        
+        updateLabel(freedom)
+    }
+    
+    @IBAction func buttonTapped(sender: AnyObject) {
+        if isValidated() {
+            greetUser()
+            //listFreedom1()
+            listFreedom2()
+        } else {
+            updateLabel("hello world!")
+        }
+    }
+    
     /*
     TODO one: hook up a button in interface builder to a new function (to be written) in this class. Also hook up the label to this class. When the button is clicked, the function to be written must make a label say ‘hello world!’
     
