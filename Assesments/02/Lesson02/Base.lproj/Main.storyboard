@@ -115,16 +115,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiz-6d-s2d">
-                                <rect key="frame" x="263" y="157" width="74" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="a5L-Tb-BsM"/>
-                                    <constraint firstAttribute="width" constant="74" id="xjJ-ke-pIy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dsS-73-FSq">
                                 <rect key="frame" x="217" y="103" width="167" height="30"/>
                                 <constraints>
@@ -143,7 +133,19 @@
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="DXI-gN-4Tg" eventType="touchUpInside" id="F7F-6w-BSb"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiz-6d-s2d">
+                                <rect key="frame" x="295" y="157" width="10" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="a5L-Tb-BsM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -151,8 +153,10 @@
                             <constraint firstItem="qiz-6d-s2d" firstAttribute="top" secondItem="dsS-73-FSq" secondAttribute="bottom" constant="24" id="BXf-ge-u2s"/>
                             <constraint firstAttribute="centerX" secondItem="qiz-6d-s2d" secondAttribute="centerX" id="dhr-vr-JtN"/>
                             <constraint firstAttribute="centerX" secondItem="dsS-73-FSq" secondAttribute="centerX" id="otl-Re-q0Q"/>
+                            <constraint firstAttribute="centerX" secondItem="qiz-6d-s2d" secondAttribute="centerX" id="qcF-2N-O3L"/>
                             <constraint firstItem="BLG-wH-QXc" firstAttribute="top" secondItem="qiz-6d-s2d" secondAttribute="bottom" constant="17" id="sze-Nk-HWC"/>
                             <constraint firstItem="dsS-73-FSq" firstAttribute="top" secondItem="KNu-MI-cVx" secondAttribute="bottom" constant="39" id="w2m-Ix-kyX"/>
+                            <constraint firstAttribute="centerX" secondItem="qiz-6d-s2d" secondAttribute="centerX" id="xDU-XG-uMt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vhf-mA-ANj">
@@ -162,6 +166,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="numTextField" destination="dsS-73-FSq" id="rZL-d0-Zzp"/>
+                        <outlet property="sumLabel" destination="qiz-6d-s2d" id="ok7-me-cBs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFb-9H-Aa6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

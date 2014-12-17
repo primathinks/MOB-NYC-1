@@ -36,7 +36,7 @@ class FirstViewController: UIViewController {
     
     // Displays one or more sentences
     func listFreedom1() {
-        var numAge = ageTextField.text.toInt()
+        var numAge: Int? = ageTextField.text.toInt()
         var freedom: String = "\(mainLabel.text!)\n"
  
         if numAge >= 16 {
@@ -54,7 +54,7 @@ class FirstViewController: UIViewController {
     
     // Displays one sentence only
     func listFreedom2() {
-        var numAge = ageTextField.text.toInt()
+        var numAge: Int? = ageTextField.text.toInt()
         var freedom: String = "\(mainLabel.text!)\n"
         freedom += "You can "
         
