@@ -25,13 +25,15 @@ class FourthViewController: UIViewController {
     }
     
     func makeOrdinal(num: Int) -> String {
+        var currStr : String = String(num)
         var currOrdinal : String = "th"
-        switch(num) {
-        case 1:
+        
+        switch(currStr) {
+        case "1":
             currOrdinal = "st"
-        case 2:
+        case "2":
             currOrdinal = "nd"
-        case 3:
+        case "3":
             currOrdinal = "rd"
         default:
             currOrdinal = "th"
@@ -64,7 +66,7 @@ class FibonacciAdder {
         var x : Int = 0
         var y : Int = 1
         
-        if num > 0 {
+        if num > 1 {
             for index in 1...num - 1 {
                 var temp: Int = x
                 x = y
@@ -76,9 +78,3 @@ class FibonacciAdder {
     }
     
 }
-
-
-
-
-
-
