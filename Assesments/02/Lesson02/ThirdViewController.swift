@@ -14,11 +14,10 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var parityLabel: UILabel!
     
     func isValidated() -> Bool{
-        var validated: Bool = true
         if numTextField.text.isEmpty {
-            validated = false
+            return false
         }
-        return validated
+        return true
     }
     
     func updateLabel(str: String) {

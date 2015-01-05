@@ -49,6 +49,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="eNz-jV-llc">
+                    <connections>
+                        <action selector="didSwipe:" destination="vXZ-lx-hvc" id="txH-CD-cKR"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
         <!--View Controller-->

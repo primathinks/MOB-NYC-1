@@ -4,6 +4,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var myLabel: UILabel!
     
+    @IBAction func didSwipe(sender: AnyObject) {
+        myLabel.text = "Swipe!"
+    }
+    
     @IBAction func didTapButton(sender: AnyObject) {
         self.view.backgroundColor = UIColor.redColor()
         myLabel.text = "Tapped!"

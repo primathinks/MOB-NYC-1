@@ -233,6 +233,14 @@ println("Is \(test) a palindrome?\t\(isPalindrome(test))")
 // BONUS TODO: Write a function that takes in two strings and returns a boolean indicating whether the two strings
 // Write a function that takes in two strings and returns a boolean indicating whether the two strings have the same number of lowercase 'a's in them
 
+func foo(str: String) -> Bool {
+    for char in str {
+        if char == "a" {
+            return true
+        }
+    }
+    return false
+}
 
 // BONUS TODO: Write a function that accepts two parameters, a string and a function that accepts a string and returns a string. Print the result of passing the string into the function 10 times.
 

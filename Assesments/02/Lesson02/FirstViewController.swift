@@ -15,12 +15,10 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var mainLabel: UILabel!
     
     func isValidated() -> Bool{
-        var validated:Bool = true
-        
         if nameTextField.text.isEmpty || ageTextField.text.isEmpty {
-            validated = false
+            return false
         }
-        return validated
+        return true
     }
     
     func updateLabel(str: String) {

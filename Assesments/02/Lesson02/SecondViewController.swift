@@ -14,11 +14,10 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var sumLabel: UILabel!
     
     func isValidated() -> Bool {
-        var validated: Bool = true
         if numTextField.text.isEmpty {
-            validated = false
+            return false
         }
-        return validated
+        return true
     }
     
     func updateLabel(str: String) {
