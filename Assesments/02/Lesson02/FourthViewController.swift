@@ -14,7 +14,7 @@ class FourthViewController: UIViewController {
     @IBOutlet weak var fibLabel: UILabel!
     
     func isValidated() -> Bool {
-        if numTextField.text.isEmpty {
+        if numTextField.text.isEmpty || numTextField.text == "0" {
             return false
         }
         return true
@@ -24,11 +24,30 @@ class FourthViewController: UIViewController {
         fibLabel.text = str
     }
     
+    func makeOrdinal(num: Int) -> String {
+        var currOrdinal : String = "th"
+        switch(num) {
+        case 1:
+            currOrdinal = "st"
+        case 2:
+            currOrdinal = "nd"
+        case 3:
+            currOrdinal = "rd"
+        default:
+            currOrdinal = "th"
+        }
+        return "\(num)" + currOrdinal
+    }
+    
     @IBAction func buttonTapped(sender: AnyObject) {
         if isValidated() {
-            //create instance of FibonacciAdder class
+            var currInput : Int = numTextField.text.toInt() ?? 0
+            var currFibonacciAdder = FibonacciAdder()
+            var currFibonacciOutput : String = String(currFibonacciAdder.fibonacciNumberAtIndex(currInput))
+            updateLabel("The \(makeOrdinal(currInput)) Fibonacci number is \(currFibonacciOutput)")
+            
         } else {
-            updateLabel("Please enter a number.")
+            updateLabel("Please enter a number greater than 0.")
         }
     }
     
@@ -39,11 +58,23 @@ class FourthViewController: UIViewController {
 }
 
 class FibonacciAdder {
-    var indexOfFibonacciNumber : Int = 0
+    var indexofFibonacciNumber : Int = 0
     
-    func fibonacciNumberAtIndex() -> String {
-        return("This is a Fibonacci method for \(indexOfFibonacciNumber)")
+    func fibonacciNumberAtIndex(num: Int) -> Int {
+        var x : Int = 0
+        var y : Int = 1
+        
+        if num > 0 {
+            for index in 1...num - 1 {
+                var temp: Int = x
+                x = y
+                y = temp + y
+            }
+        }
+
+        return x
     }
+    
 }
 
 
