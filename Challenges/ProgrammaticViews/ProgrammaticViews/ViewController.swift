@@ -6,6 +6,14 @@
 //  Copyright (c) 2015 travis holt. All rights reserved.
 //
 
+/* Requirements
+    Round button corners (hint: layer)
+    Detect tap
+    Store reference to and change constraints
+    Change button color
+    Animate changes
+*/
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -45,6 +53,19 @@ class ViewController: UIViewController {
     self.view.addConstraints([widthConstraint, heightConstraint, leftConstraint, topConstraint])
     
     widget.backgroundColor = UIColor.greenColor()
+    
+    widget.layer.cornerRadius = 8
+    
+    widget.addTarget(self, action: "colorButton:", forControlEvents: UIControlEvents.TouchDown)
   }
+    
+    func colorButton(sender:UIButton!) {
+        self.view.backgroundColor = UIColor.yellowColor()
+        widget.backgroundColor = UIColor.redColor()
+    }
+    
+    func animateWidget() {
+        
+    }
   
 }

@@ -6,10 +6,10 @@
 // TODO: Write a function that prints out "Hello world!" 10 times
 
 func helloWorld() {
-    var i: Int
-    for i = 0; i < 10; i++ {
+    for var i = 0; i < 10; i++ {
         println("Hello World")
     }
+    
 }
 
 /****** Call Function ******/
@@ -17,15 +17,14 @@ func helloWorld() {
 
 // TODO: Write a function that prints out "Hit this line {number of iterations of the loop} times!" 20 times
 
-func hitThis() {
-    var i: Int
-    for i = 1; i <= 20; i++ {
+func hitThis(x: Int) {
+    for i in 1...x {
         println("Hit this line \(i) times!")
     }
 }
 
 /****** Call Function ******/
-//hitThis()
+//hitThis(30)
 
 // TODO: Write a function that accepts a string as a parameter. Print "Hello {value of string}!"
 
@@ -39,11 +38,15 @@ func helloName(name: String) {
 // TODO: Write a function accepts a string optional. If the string optional exists, print "Hello {value of string}!". If it doesn't, print "Hello world!"
 
 func helloWhat(str: String?) {
-    if let name = str {
-        println("Hello \(name)")
-    } else {
-        println("Hello world")
-    }
+    var defStr = "world"
+    var newStr = str ?? defStr
+//    if let name = str {
+//        println("Hello \(name)")
+//    } else {
+//        println("Hello world")
+//    }
+    
+    println("Hello \(newStr)")
 }
 
 /****** Call Function ******/
@@ -121,14 +124,12 @@ println("The sum of the first \(sum) Fibonacci numbers is \(sumFib(sum))")
 // TODO: Write a function that takes in a number and prints out whether it is prime, composite or neither.
 
 func isPrime(num: Int) -> Bool {
-    var bool: Bool = true
-    
     for var i = 2; i < num; i++ {
         if num % i == 0 {
-            bool = false
+            return false
         }
     }
-    return bool
+    return true
 }
 
 func numType(num: Int) -> String {
@@ -173,6 +174,22 @@ func payBill(amt: Float, percentage: Float) -> (Float, Float) {
     var total = amt + tip
     return (total, tip)
 }
+
+func tipCalc(subTotal: Float, tip: Float?) -> (Float, Float) {
+    var total = subTotal
+    var tipAmount: Float = 0
+    
+    if let t = tip {
+        tipAmount = subTotal * t
+    }
+    
+    total += tipAmount
+    return(total, tipAmount)
+}
+
+let tipResult = tipCalc(10, 0.2)
+let t = tipResult.0
+let p = tipResult.1
 
 /****** Call Function ******/
 //println("The total and tip are \(payBill(40.0, 0.2))")
@@ -266,3 +283,20 @@ func repeatStr2(#str: String, #num: Int, #funStr: (String) -> String) {
 }
 
 repeatStr2(str: "beer", num: 12, funStr: makeQuestion)
+
+func fibonacciNumberAtIndex(num: Int) -> Int {
+    var x : Int = 0
+    var y : Int = 1
+    
+    if num > 1 {
+        for index in 1..<num {
+            var temp: Int = x
+            x = y
+            y = temp + y
+        }
+    }
+    
+    return x
+}
+
+//fibonacciNumberAtIndex(2)
