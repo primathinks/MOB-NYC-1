@@ -15,6 +15,7 @@
 		5DCED9A919D8DF0800DE1DC2 /* ArrayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCED9A819D8DF0800DE1DC2 /* ArrayTableViewController.swift */; };
 		5DCED9AB19D8DF4E00DE1DC2 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCED9AA19D8DF4E00DE1DC2 /* Animal.swift */; };
 		DB1E792E1A6ADEDA00ED27DF /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E792D1A6ADEDA00ED27DF /* Pet.swift */; };
+		DB98F4941A6B6C020053757B /* ein_super.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB98F4931A6B6C020053757B /* ein_super.jpg */; };
 		DB9F83751A6AE356008D07B5 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F83741A6AE356008D07B5 /* ModalViewController.swift */; };
 		DB9F83771A6AE6D5008D07B5 /* kumodo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB9F83761A6AE6D5008D07B5 /* kumodo.jpg */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		5DCED9A819D8DF0800DE1DC2 /* ArrayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTableViewController.swift; sourceTree = "<group>"; };
 		5DCED9AA19D8DF4E00DE1DC2 /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		DB1E792D1A6ADEDA00ED27DF /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		DB98F4931A6B6C020053757B /* ein_super.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ein_super.jpg; sourceTree = "<group>"; };
 		DB9F83741A6AE356008D07B5 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		DB9F83761A6AE6D5008D07B5 /* kumodo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kumodo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				5DCED98819D8DC9B00DE1DC2 /* AppDelegate.swift */,
 				5DCED98A19D8DC9B00DE1DC2 /* ViewController.swift */,
 				5DCED98C19D8DC9B00DE1DC2 /* Main.storyboard */,
+				DB98F4931A6B6C020053757B /* ein_super.jpg */,
 				DB9F83741A6AE356008D07B5 /* ModalViewController.swift */,
 				5DCED98F19D8DC9B00DE1DC2 /* Images.xcassets */,
 				5DCED98619D8DC9B00DE1DC2 /* Supporting Files */,
@@ -206,6 +209,7 @@
 			files = (
 				5DCED98E19D8DC9B00DE1DC2 /* Main.storyboard in Resources */,
 				DB9F83771A6AE6D5008D07B5 /* kumodo.jpg in Resources */,
+				DB98F4941A6B6C020053757B /* ein_super.jpg in Resources */,
 				5DCED99019D8DC9B00DE1DC2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

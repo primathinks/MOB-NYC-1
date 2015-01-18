@@ -9,13 +9,19 @@
 import UIKit
 
 class Pet: Animal {
+    var owner: String?
     
-    override init(name: String) {
+    init(name: String, owner: String?) {
         super.init(name: name)
+        self.owner = owner
     }
     
     override func prettyAnimalName() -> String {
-        return "My favorite pet is " + self.name
+        if let someone = self.owner {
+            return someone + "'s pet is named " + self.name
+        } else {
+            return self.name + " needs an owner"
+        }
     }
 
 }

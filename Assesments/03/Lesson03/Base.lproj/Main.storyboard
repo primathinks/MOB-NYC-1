@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G0q-Oc-BQG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -100,29 +101,30 @@ It needs to have an image view and a dismiss button that dismisses the modal. Do
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ein_super.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eqS-KX-Cri">
+                                <rect key="frame" x="-2" y="0.0" width="604" height="463"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ep-6t-Sb6">
-                                <rect key="frame" x="280" y="456" width="40" height="30"/>
-                                <state key="normal" title="Close">
+                                <rect key="frame" x="267" y="513" width="67" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JSy-yp-Izu"/>
+                                </constraints>
+                                <state key="normal" title="Let's Jam">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="doButtonTap:" destination="OPc-hj-aEU" eventType="touchUpInside" id="ts1-HG-x6m"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kumodo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bQK-rg-kER">
-                                <rect key="frame" x="180" y="20" width="240" height="448"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Pol-cs-UzU"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9Ep-6t-Sb6" firstAttribute="centerX" secondItem="bQK-rg-kER" secondAttribute="centerX" id="8r9-qR-IKi"/>
-                            <constraint firstItem="bQK-rg-kER" firstAttribute="centerX" secondItem="WJ9-HX-hdf" secondAttribute="centerX" id="GGI-jS-lw5"/>
-                            <constraint firstItem="UPz-WO-MIc" firstAttribute="top" secondItem="9Ep-6t-Sb6" secondAttribute="bottom" constant="114" id="ZuV-wf-esB"/>
-                            <constraint firstItem="UPz-WO-MIc" firstAttribute="top" secondItem="bQK-rg-kER" secondAttribute="bottom" constant="132" id="foA-eV-G7g"/>
-                            <constraint firstItem="bQK-rg-kER" firstAttribute="top" secondItem="cZj-bW-9gX" secondAttribute="bottom" id="uIb-Ld-9xL"/>
+                            <constraint firstItem="eqS-KX-Cri" firstAttribute="top" secondItem="WJ9-HX-hdf" secondAttribute="top" id="7kS-eT-oN8"/>
+                            <constraint firstItem="UPz-WO-MIc" firstAttribute="top" secondItem="9Ep-6t-Sb6" secondAttribute="bottom" constant="57" id="8IA-fj-VlF"/>
+                            <constraint firstItem="eqS-KX-Cri" firstAttribute="leading" secondItem="WJ9-HX-hdf" secondAttribute="leadingMargin" constant="-18" id="BGi-z6-GES"/>
+                            <constraint firstItem="9Ep-6t-Sb6" firstAttribute="centerX" secondItem="WJ9-HX-hdf" secondAttribute="centerX" id="eun-lV-TdW"/>
+                            <constraint firstItem="9Ep-6t-Sb6" firstAttribute="top" secondItem="eqS-KX-Cri" secondAttribute="bottom" constant="50" id="h0n-OU-y23"/>
+                            <constraint firstItem="9Ep-6t-Sb6" firstAttribute="centerX" secondItem="eqS-KX-Cri" secondAttribute="centerX" id="o0g-j9-Y0k"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -150,6 +152,6 @@ It needs to have an image view and a dismiss button that dismisses the modal. Do
         </scene>
     </scenes>
     <resources>
-        <image name="kumodo.jpg" width="750" height="1333"/>
+        <image name="ein_super.jpg" width="543" height="417"/>
     </resources>
 </document>
