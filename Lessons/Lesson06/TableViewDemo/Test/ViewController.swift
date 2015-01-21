@@ -29,7 +29,11 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+<<<<<<< HEAD
         <#code#>
+=======
+        
+>>>>>>> f5cfa63e8c880b20d089a281c71f144cb6f8c0e6
     }
 }
 
