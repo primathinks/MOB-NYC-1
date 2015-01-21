@@ -31,7 +31,7 @@ class ArrayTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier") as? UITableViewCell ?? UITableViewCell(style: .Default, reuseIdentifier: "CellIdentifier")
         
-        cell.textLabel.text = animalArray[indexPath.row].prettyAnimalName()
+        cell.textLabel?.text = animalArray[indexPath.row].prettyAnimalName()
         
         return cell
     }
