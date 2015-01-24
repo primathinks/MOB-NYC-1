@@ -10,7 +10,9 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
-    var todos = ["groceries", "homework", "walk dog"]
+    var tasks = [["name": "groceries", "status": "closed", "dueDate": "Jan 23"],
+        ["name": "homework", "status": "in progress", "dueDate": "Jan 30"]
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +45,34 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count
+        return tasks.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel?.text = todos[indexPath.row]
+        // extract dictionary values
+        if let taskName = tasks[indexPath.row]["name"] {
+            cell.textLabel?.text = taskName
+        }
+        
+        if let taskStatus = tasks[indexPath.row]["status"] {
+            if let taskDueDate = tasks[indexPath.row]["dueDate"] {
+                cell.detailTextLabel?.text = taskStatus + " / Due: " + taskDueDate
+            }
+        }
         return cell
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            tasks.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
     }
 
     /*
