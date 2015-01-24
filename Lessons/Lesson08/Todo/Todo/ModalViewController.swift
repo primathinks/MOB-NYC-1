@@ -16,19 +16,17 @@ class ModalViewController: UIViewController, UITextFieldDelegate {
     
     var todoViewController: MainTableViewController?
     
-    func addTask() {
+    @IBAction func didTapButton(sender: AnyObject) {
         var newTask = ["name": textField.text!, "status": statusField.text!, "dueDate": dueDateField.text!]
         todoViewController?.tasks.append(newTask)
-    }
-    
-    @IBAction func didTapButton(sender: AnyObject) {
-        addTask()
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        addTask()
-        dismissViewControllerAnimated(true, completion: nil)
+        if textField == dueDateField {
+            didTapButton(textField)
+        }
         return false
     }
     
