@@ -29,7 +29,7 @@ class TableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as UITableViewCell
-    cell.textLabel.text = cities[indexPath.row]
+    cell.textLabel?.text = cities[indexPath.row]
     return cell
   }
   
