@@ -10,9 +10,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
-    var tasks = [["name": "groceries", "status": "closed", "dueDate": "Jan 23"],
-        ["name": "homework", "status": "in progress", "dueDate": "Jan 30"]
-    ]
+    var tasks: [Dictionary<String, String>] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
