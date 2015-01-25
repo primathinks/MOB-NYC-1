@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="679" y="-424"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="2b4-kn-WaL">
             <objects>
-                <viewController id="mG0-xw-3hS" sceneMemberID="viewController">
+                <viewController id="mG0-xw-3hS" customClass="MapViewController" customModule="Lesson04" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tCV-4D-Blq"/>
                         <viewControllerLayoutGuide type="bottom" id="zP7-uP-epS"/>
@@ -88,8 +88,49 @@
                     <view key="view" contentMode="scaleToFill" id="A6S-cp-d3T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KBg-24-E2U">
+                                <rect key="frame" x="252" y="139" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="btB-kL-bxd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ia0-it-3G4">
+                                <rect key="frame" x="0.0" y="209" width="600" height="391"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mG0-xw-3hS" id="cH7-0j-z0o"/>
+                                    <outlet property="delegate" destination="mG0-xw-3hS" id="TJH-2p-Uqf"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c7j-lW-xe2">
+                                <rect key="frame" x="252" y="101" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="x97-BU-jo2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ia0-it-3G4" firstAttribute="leading" secondItem="A6S-cp-d3T" secondAttribute="leading" id="6m6-Gg-Hxo"/>
+                            <constraint firstItem="KBg-24-E2U" firstAttribute="centerX" secondItem="ia0-it-3G4" secondAttribute="centerX" id="HhQ-nc-9fa"/>
+                            <constraint firstItem="KBg-24-E2U" firstAttribute="top" secondItem="c7j-lW-xe2" secondAttribute="bottom" constant="8" symbolic="YES" id="M6h-fk-sfQ"/>
+                            <constraint firstItem="ia0-it-3G4" firstAttribute="top" secondItem="KBg-24-E2U" secondAttribute="bottom" constant="40" id="N7e-tM-SEy"/>
+                            <constraint firstItem="KBg-24-E2U" firstAttribute="top" secondItem="A6S-cp-d3T" secondAttribute="top" constant="139" id="T1b-Ec-Bcs"/>
+                            <constraint firstItem="KBg-24-E2U" firstAttribute="leading" secondItem="c7j-lW-xe2" secondAttribute="leading" id="U6E-WZ-pvr"/>
+                            <constraint firstItem="KBg-24-E2U" firstAttribute="centerX" secondItem="A6S-cp-d3T" secondAttribute="centerX" id="o9M-gA-3Hf"/>
+                            <constraint firstItem="ia0-it-3G4" firstAttribute="bottom" secondItem="zP7-uP-epS" secondAttribute="top" id="qzL-I6-Gyk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="keyTextField" destination="c7j-lW-xe2" id="ic1-41-LSd"/>
+                        <outlet property="tableView" destination="ia0-it-3G4" id="piP-Yd-JYu"/>
+                        <outlet property="valueTextField" destination="KBg-24-E2U" id="d8Y-hL-6fh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgJ-aY-RP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
