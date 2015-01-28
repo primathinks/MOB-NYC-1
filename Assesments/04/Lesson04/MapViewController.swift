@@ -32,7 +32,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return !keyTextField.text.isEmpty && !valueTextField.text.isEmpty
     }
     
-    // textField delegates
+    // textField delegate
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField == keyTextField || textField == valueTextField {
             textField.text = nil
@@ -53,7 +53,11 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return true
     }
     
-    // tableView
+    // tableView delegate and datasource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mapArray.count
     }
@@ -62,7 +66,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         var pair = self.mapArray[indexPath.row]
-        
+       
         cell.textLabel?.text = pair["key"]
         cell.detailTextLabel?.text = pair["value"]
         return cell

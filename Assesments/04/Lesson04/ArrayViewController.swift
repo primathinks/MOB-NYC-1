@@ -45,6 +45,10 @@ class ArrayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     // tableView
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
