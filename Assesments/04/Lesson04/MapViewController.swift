@@ -22,10 +22,17 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var mapArray: [Dictionary<String, String>] = []
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        keyTextField.delegate = self
+        valueTextField.delegate = self
+    }
+    
     func isValidated() -> Bool {
         return !keyTextField.text.isEmpty && !valueTextField.text.isEmpty
     }
     
+    // textField delegates
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField == keyTextField || textField == valueTextField {
             textField.text = nil
@@ -46,34 +53,19 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        keyTextField.delegate = self
-        valueTextField.delegate = self
-    }
-    
+    // tableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mapArray.count
     }
     
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         var pair = self.mapArray[indexPath.row]
         
-        if let key = pair["key"] {
-            if let value = pair["value"] {
-                cell.textLabel?.text = "\(key) / \(value)"
-            }
-        }
+        cell.textLabel?.text = pair["key"]
+        cell.detailTextLabel?.text = pair["value"]
         return cell
-    }
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //do nothing
     }
     
 }

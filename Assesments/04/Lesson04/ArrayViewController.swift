@@ -16,10 +16,15 @@ class ArrayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     */
     
-    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet var tableView: UITableView!
     
     var items: [String] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        textField.delegate = self
+    }
     
     // textField delegates
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -39,26 +44,16 @@ class ArrayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        textField.delegate = self
-    }
-    
+    // tableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = self.items[indexPath.row]
         return cell
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
     
 }
 
