@@ -8,20 +8,31 @@
 
 import UIKit
 
-class ModalViewController: UIViewController {
-
+class ModalViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var statusTextField: UITextField!
+    
+    @IBOutlet weak var duedateTextField: UITextField!
+    
     var todoViewController: MainTableViewController?
     
     @IBAction func didTapButton(sender: AnyObject) {
-        todoViewController?.todos.append(textField.text)
-        
-        dismissViewControllerAnimated(true, completion: nil)
+        if let name = textField.text {
+            var newTask = ["name": name, "status": "open", "dueDate": "today"]
+            todoViewController?.todos.append(newTask)
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.textField.delegate = self
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.placeholder = "something"
     }
 
     override func didReceiveMemoryWarning() {

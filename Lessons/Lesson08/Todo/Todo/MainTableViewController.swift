@@ -7,19 +7,41 @@
 //
 
 import UIKit
+import Foundation
+
 
 class MainTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var addedLabel: UILabel!
     var tasks: [Dictionary<String, String>] = []
+    
+    func fadeLabel() {
+        UIView.animateWithDuration(2.0, delay: 0.5, options: UIViewAnimationOptions.Autoreverse, animations: { () -> Void in
+            self.addedLabel.alpha = 1.0
+            }) { (finished) -> Void in
+                if finished {
+                    // do nothing
+                    println("completion")
+                }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.addedLabel.alpha = 0.0
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "fadeLabel", name: "todoAdded", object: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.addedLabel.alpha = 0.0
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -30,10 +52,6 @@ class MainTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -49,10 +67,8 @@ class MainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
         
-        // extract dictionary values
-        if let taskName = tasks[indexPath.row]["name"] {
-            cell.textLabel?.text = taskName
-        }
+        var taskName = tasks[indexPath.row]["name"]
+        cell.textLabel?.text = taskName
         
         if let taskStatus = tasks[indexPath.row]["status"] {
             if let taskDueDate = tasks[indexPath.row]["dueDate"] {
@@ -63,15 +79,16 @@ class MainTableViewController: UITableViewController {
     }
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tasks.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            // Delete the row from the data source
+//            tasks.removeAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        } else if editingStyle == .Insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
+
 
     /*
     // Override to support conditional editing of the table view.

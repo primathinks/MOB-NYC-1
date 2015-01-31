@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
-
-    var todos = ["groceries", "homework", "walk dog"]
+class MainTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+    //var todos =["groceries", "laundry", "homework"]
+    var todos = [["name": "groceries", "status": "open", "duedate": "tomorrow"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +48,14 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-        
-        cell.textLabel?.text = todos[indexPath.row]
+        var dictionary = todos[indexPath.row]
+        cell.textLabel?.text = dictionary["name"]
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        cell.backgroundColor = UIColor.redColor()
     }
 
     /*
