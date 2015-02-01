@@ -37,8 +37,8 @@ class ArrayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if textField == self.textField && !self.textField.text.isEmpty {
             textField.resignFirstResponder()
             if let item = textField.text {
-                self.items.append(item)
-                self.tableView.reloadData()
+                items.append(item)
+                tableView.reloadData()
             }
         }
         return true
@@ -50,12 +50,12 @@ class ArrayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = self.items[indexPath.row]
+        cell.textLabel?.text = items[indexPath.row]
         return cell
     }
     

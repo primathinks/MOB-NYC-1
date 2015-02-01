@@ -22,17 +22,50 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var mapArray: [Dictionary<String, String>] = []
     
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         keyTextField.delegate = self
         valueTextField.delegate = self
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        notificationCenter.addObserver(self, selector: "handleKeyboardShow", name: UIKeyboardWillShowNotification, object: nil)
+
+        notificationCenter.addObserver(self, selector: "handleKeyboardHide", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        notificationCenter.removeObserver(self)
+    }
+    
+    
+    // keyboard notifications
+    func handleKeyboardShow() {
+        var bg = UIColor.blueColor()
+        colorTextFields(bg)
+    }
+    
+    func handleKeyboardHide() {
+        var bg = UIColor.redColor()
+        colorTextFields(bg)
+    }
+    
+    func colorTextFields(bg: UIColor) {
+        keyTextField.backgroundColor = bg
+        valueTextField.backgroundColor = bg
+    }
+    
+    
+    // textField methods
     func isValidated() -> Bool {
         return !keyTextField.text.isEmpty && !valueTextField.text.isEmpty
     }
     
-    // textField delegate
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField == keyTextField || textField == valueTextField {
             textField.text = nil
@@ -45,27 +78,28 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             if let key = keyTextField.text {
                 if let value = valueTextField.text {
                     var pair = ["key": key, "value": value]
-                    self.mapArray.append(pair)
-                    self.tableView.reloadData()
+                    mapArray.append(pair)
+                    tableView.reloadData()
                 }
             }
         }
         return true
     }
     
-    // tableView delegate and datasource
+    
+    // tableView methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.mapArray.count
+        return mapArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        var pair = self.mapArray[indexPath.row]
+        var pair = mapArray[indexPath.row]
        
         cell.textLabel?.text = pair["key"]
         cell.detailTextLabel?.text = pair["value"]
