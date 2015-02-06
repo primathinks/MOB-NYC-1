@@ -12,10 +12,10 @@ class RotationPassthroughNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func shouldAutorotate() -> Bool {
         return self.visibleViewController.shouldAutorotate()
     }

@@ -12,8 +12,17 @@ class ExerciseViewController: UIViewController {
     let exerciseView = UIView()
     let exerciseDescription = UILabel()
     
+    // Visible area betweeen nav and toolbar
+    var exerciseTop = CGFloat()
+    var exerciseBottom = CGFloat()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Get Y of area below navigation bar
+        if let navFrame = self.navigationController?.navigationBar.frame {
+            self.exerciseTop = CGRectGetMaxY(navFrame)
+        }
         
         self.exerciseDescription.frame = self.view.frame
         self.exerciseDescription.numberOfLines = 0
@@ -46,6 +55,9 @@ class ExerciseViewController: UIViewController {
                 )],
             animated: false
         )
+        
+        //Get Y of area above toolbar
+        self.exerciseBottom = CGRectGetMinY(toolbar.frame)
     }
     
     func didTapFlip() {
