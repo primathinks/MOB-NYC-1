@@ -12,17 +12,13 @@ class ExerciseViewController: UIViewController {
     let exerciseView = UIView()
     let exerciseDescription = UILabel()
     
-    // Visible area betweeen nav and toolbar
-    var exerciseTop = CGFloat()
-    var exerciseBottom = CGFloat()
+    // Nav and toolbar dimensions
+    var navMaxY = CGFloat()
+    let toolHeight:CGFloat = 44
+    var toolMinY = CGFloat()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Get Y of area below navigation bar
-        if let navFrame = self.navigationController?.navigationBar.frame {
-            self.exerciseTop = CGRectGetMaxY(navFrame)
-        }
         
         self.exerciseDescription.frame = self.view.frame
         self.exerciseDescription.numberOfLines = 0
@@ -38,7 +34,7 @@ class ExerciseViewController: UIViewController {
         self.exerciseView.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(exerciseView)
         
-        var toolbar = UIToolbar(frame: CGRect(x: 0, y: CGRectGetMaxY(self.view.frame) - 44, width: CGRectGetWidth(self.view.frame), height: 44))
+        var toolbar = UIToolbar(frame: CGRect(x: 0, y: CGRectGetMaxY(self.view.frame) - toolHeight, width: CGRectGetWidth(self.view.frame), height: toolHeight))
         self.view.addSubview(toolbar)
         toolbar.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
         toolbar.setItems(
@@ -56,8 +52,11 @@ class ExerciseViewController: UIViewController {
             animated: false
         )
         
-        //Get Y of area above toolbar
-        self.exerciseBottom = CGRectGetMinY(toolbar.frame)
+        // Capture nav and toolbar dimensions
+        if let navFrame = self.navigationController?.navigationBar.frame {
+            navMaxY = CGRectGetMaxY(navFrame)
+        }
+        toolMinY = CGRectGetMinY(toolbar.frame)
     }
     
     func didTapFlip() {
