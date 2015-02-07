@@ -38,8 +38,8 @@ class SecondViewController: ExerciseViewController {
         var squareOrigins:[CGPoint] = [
             CGPoint(x: 0, y: self.navMaxY),
             CGPoint(x: self.exerciseView.frame.maxX - squareUnit, y: self.navMaxY),
-            CGPoint(x: self.exerciseView.frame.maxX - squareUnit, y: self.toolMinY - squareUnit),
-            CGPoint(x: 0, y: self.toolMinY - squareUnit)
+            CGPoint(x: self.exerciseView.frame.maxX - squareUnit, y: self.exerciseView.frame.height - (self.toolHeight + squareUnit)),
+            CGPoint(x: 0, y: self.exerciseView.frame.height - (self.toolHeight + squareUnit))
         ]
         
         var squareColors:[UIColor] = [UIColor.redColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor()]
@@ -47,6 +47,11 @@ class SecondViewController: ExerciseViewController {
         setOrigin(squareViews, originArray: squareOrigins)
         setSize(squareViews)
         setColor(squareViews, colorArray: squareColors)
+        
+        square1View.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleRightMargin
+        square2View.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleLeftMargin
+        square3View.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleLeftMargin
+        square4View.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleRightMargin
         
         // add squareViews
         for view in squareViews {
@@ -67,6 +72,12 @@ class SecondViewController: ExerciseViewController {
         }
     }
     
+//    func setColor(viewArray:Array<UIView>) {
+//        for view in viewArray {
+//            view.backgroundColor = self.squareColor
+//        }
+//    }
+    
     func setColor(viewArray:Array<UIView>, colorArray:Array<UIColor>) {
         for (index, view) in enumerate(viewArray) {
             view.backgroundColor = colorArray[index]
@@ -78,27 +89,22 @@ class SecondViewController: ExerciseViewController {
     }
     
     // handle view rotation
+    // adjust upper-left and upper-right y origins
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
-        var squareViews:[UIView] = [square1View, square2View, square3View, square4View]
+        var squareViews:[UIView] = [square1View, square2View]
         let landscapeMode = size.width > size.height
         var topY = self.navMaxY
-        var bottomY = size.height - self.toolHeight - squareUnit
-
+        
         if landscapeMode {
             topY = 32.0
         }
         
-        var squareOrigins:[CGPoint] = [
-            CGPoint(x: 0, y: topY),
-            CGPoint(x: size.width - squareUnit, y: topY),
-            CGPoint(x: size.width - squareUnit, y: bottomY),
-            CGPoint(x: 0, y: bottomY)
-        ]
+        for view in squareViews {
+            view.frame.origin.y = topY
+        }
         
-        setOrigin(squareViews, originArray: squareOrigins)
-       
     }
     
     func next() {
