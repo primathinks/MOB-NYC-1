@@ -37,12 +37,14 @@ class SixthViewController: ExerciseViewController, UITableViewDelegate, UITableV
             cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
         }
         
+        
+        
         /* TODO:
         The table view cells on this screen are blank.
         
         Add a label to each cell that is green and centered, and have its text say “Row {X}” (X is the row number of the cell). The tableview should rotate correctly. Use Autolayout.
         */
-        
+        cell!.textLabel?.text = "Row \(indexPath.row + 1)"
         return cell!
     }
     

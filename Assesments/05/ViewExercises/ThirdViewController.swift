@@ -6,6 +6,15 @@
 //  Copyright (c) 2014 Rudd Taylor. All rights reserved.
 //
 
+/* TODO:
+Build four blue squares, 20 points wide, one in each corner of the screen.
+They must stay in their respective corners on device rotation.
+
+Use Autolayout.
+
+Your view should be in self.exerciseView, not self.view
+*/
+
 import UIKit
 
 class ThirdViewController: ExerciseViewController {
@@ -17,14 +26,6 @@ class ThirdViewController: ExerciseViewController {
         super.viewDidLoad()
         self.exerciseDescription.text = "View 3"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: "next")
-        /* TODO:
-        Build four blue squares, 20 points wide, one in each corner of the screen.
-        They must stay in their respective corners on device rotation. 
-        
-        Use Autolayout.
-        
-        Your view should be in self.exerciseView, not self.view
-        */
         autolayout()
     }
     

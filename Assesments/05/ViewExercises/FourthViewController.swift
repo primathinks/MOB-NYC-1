@@ -24,6 +24,11 @@ class FourthViewController: ExerciseViewController {
         
         Your view should be in self.exerciseView, not self.view.
         */
+        autoLayout()
+    }
+    
+    func autoLayout() {
+        var blueBox = UIView()
     }
     
     override func shouldAutorotate() -> Bool {
