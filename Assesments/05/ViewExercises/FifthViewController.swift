@@ -37,15 +37,15 @@ class FifthViewController: ExerciseViewController {
         self.exerciseView.addSubview(button)
         
         // button constraints
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: .CenterX, relatedBy: .Equal, toItem: self.exerciseView, attribute: .CenterX, multiplier: 1.0, constant: 0))
         
-        centerYConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0)
+        centerYConstraint = NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: self.exerciseView, attribute: .CenterY, multiplier: 1.0, constant: 0)
         if let buttonYConstraint = centerYConstraint {
             self.exerciseView.addConstraint(buttonYConstraint)
         }
         
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 50))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 50))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 50))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 50))
         
         // button action
         button.addTarget(self, action: "didTap:", forControlEvents: UIControlEvents.TouchUpInside)

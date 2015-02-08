@@ -51,38 +51,38 @@ class ThirdViewController: ExerciseViewController {
         square4View.backgroundColor = UIColor.purpleColor()
         
         // square1View constraints
-        top1Constraint = NSLayoutConstraint(item: square1View, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: self.navMaxY)
+        top1Constraint = NSLayoutConstraint(item: square1View, attribute: .Top, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Top, multiplier: 1.0, constant: self.navMaxY)
         
         if let square1Top = top1Constraint {
             self.exerciseView.addConstraint(square1Top)
         }
         
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square1View, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square1View, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square1View, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square1View, attribute: .Left, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Left, multiplier: 1.0, constant: 0))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square1View, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square1View, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
         
         // square2View constraints
-        top2Constraint = NSLayoutConstraint(item: square2View, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: self.navMaxY)
+        top2Constraint = NSLayoutConstraint(item: square2View, attribute: .Top, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Top, multiplier: 1.0, constant: self.navMaxY)
         
         if let square2Top = top2Constraint {
             self.exerciseView.addConstraint(square2Top)
         }
         
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square2View, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square2View, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square2View, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square2View, attribute: .Right, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Right, multiplier: 1.0, constant: 0))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square2View, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square2View, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
         
         // square3View constraints
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -self.toolHeight))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: .Bottom, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Bottom, multiplier: 1.0, constant: -self.toolHeight))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: .Right, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Right, multiplier: 1.0, constant: 0))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square3View, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
         
         // square4View constraints
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -self.toolHeight))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.exerciseView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
-        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: .Bottom, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Bottom, multiplier: 1.0, constant: -self.toolHeight))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: .Left, relatedBy: .Equal, toItem: self.exerciseView, attribute: .Left, multiplier: 1.0, constant: 0))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
+        self.exerciseView.addConstraint(NSLayoutConstraint(item: square4View, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
         
     }
     
