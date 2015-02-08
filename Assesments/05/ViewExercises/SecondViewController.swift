@@ -19,8 +19,8 @@ import UIKit
 
 class SecondViewController: ExerciseViewController {
     
-    var squareUnit:CGFloat = 20.0
-    var squareColor:UIColor = UIColor.blueColor()
+    let squareUnit:CGFloat = 20.0
+    let squareColor:UIColor = UIColor.blueColor()
     let squareSize:CGSize = CGSize(width: 20.0, height: 20.0)
 
     let square1View = UIView()
@@ -42,22 +42,17 @@ class SecondViewController: ExerciseViewController {
             CGPoint(x: 0, y: self.exerciseView.frame.height - (self.toolHeight + squareUnit))
         ]
         
-        var squareColors:[UIColor] = [UIColor.redColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor()]
-        
         setOrigin(squareViews, originArray: squareOrigins)
-        setSize(squareViews)
-        setColor(squareViews, colorArray: squareColors)
+        setSizeColor(squareViews)
         
         square1View.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleRightMargin
         square2View.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleLeftMargin
         square3View.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleLeftMargin
         square4View.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleRightMargin
         
-        // add squareViews
         for view in squareViews {
             self.exerciseView.addSubview(view)
         }
-
     }
     
     func setOrigin(viewArray:Array<UIView>, originArray:Array<CGPoint>) {
@@ -66,21 +61,10 @@ class SecondViewController: ExerciseViewController {
         }
     }
     
-    func setSize(viewArray:Array<UIView>) {
+    func setSizeColor(viewArray:Array<UIView>) {
         for view in viewArray {
             view.frame.size = self.squareSize
-        }
-    }
-    
-//    func setColor(viewArray:Array<UIView>) {
-//        for view in viewArray {
-//            view.backgroundColor = self.squareColor
-//        }
-//    }
-    
-    func setColor(viewArray:Array<UIView>, colorArray:Array<UIColor>) {
-        for (index, view) in enumerate(viewArray) {
-            view.backgroundColor = colorArray[index]
+            view.backgroundColor = self.squareColor
         }
     }
     
@@ -88,8 +72,8 @@ class SecondViewController: ExerciseViewController {
         return true
     }
     
-    // handle view rotation
-    // adjust upper-left and upper-right y origins
+    // Handle view rotation
+    // Adjust upper-left and upper-right y origins
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         

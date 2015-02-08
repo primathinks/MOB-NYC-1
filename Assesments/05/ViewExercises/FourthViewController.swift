@@ -39,7 +39,7 @@ class FourthViewController: ExerciseViewController {
         
         scrollView = UIScrollView(frame: CGRect(x: 0, y: self.navMaxY, width: scrollWidth, height: scrollHeight))
         
-        //scrollView needs a view with fixed known dimensions
+        // scrollView needs a view with fixed known dimensions
         var containerView = UIView(frame: CGRect(x: 0, y: 0, width: scrollWidth, height: 1040))
         scrollView.addSubview(containerView)
         scrollView.contentSize = containerView.bounds.size
@@ -85,12 +85,7 @@ class FourthViewController: ExerciseViewController {
         containerView.addConstraint(NSLayoutConstraint(item: redBox, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 20))
         
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-    }
-    
     override func shouldAutorotate() -> Bool {
         return false
     }

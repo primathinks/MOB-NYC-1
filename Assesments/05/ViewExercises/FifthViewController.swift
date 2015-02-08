@@ -36,9 +36,11 @@ class FifthViewController: ExerciseViewController {
         
         self.exerciseView.addSubview(button)
         
-        // button constraints
+        // Button constraints
         self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: .CenterX, relatedBy: .Equal, toItem: self.exerciseView, attribute: .CenterX, multiplier: 1.0, constant: 0))
         
+        // Y constraint is class member
+        // Y constraint will be accessed by animation function
         centerYConstraint = NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: self.exerciseView, attribute: .CenterY, multiplier: 1.0, constant: 0)
         if let buttonYConstraint = centerYConstraint {
             self.exerciseView.addConstraint(buttonYConstraint)
@@ -47,7 +49,7 @@ class FifthViewController: ExerciseViewController {
         self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 50))
         self.exerciseView.addConstraint(NSLayoutConstraint(item: button, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 50))
         
-        // button action
+        // Button action
         button.addTarget(self, action: "didTap:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
@@ -81,7 +83,7 @@ class FifthViewController: ExerciseViewController {
         }
     }
     
-    // update button color and position
+    // Update button style and position
     func updateButton(sender: UIButton, point: CGFloat, active: Bool) {
         self.centerYConstraint?.constant = point
         self.styleButton(sender, active: active)
