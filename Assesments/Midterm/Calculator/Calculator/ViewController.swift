@@ -201,8 +201,16 @@ class ViewController: UIViewController {
     }
     
     func didTapClear(sender: UIButton) {
-        displayLabel.text = "0"
         tappingNumbers = false
+        if let currentClear = sender.titleLabel?.text {
+            if currentClear == "C" {
+                sender.setTitle("AC", forState: .Normal)
+                displayLabel.text = "0"
+            } else {
+                sender.setTitle("C", forState: .Normal)
+                calculator.allClear()
+            }
+        }
     }
     
     func didTapPlusMinus(sender: UIButton) {

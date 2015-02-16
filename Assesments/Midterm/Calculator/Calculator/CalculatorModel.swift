@@ -18,20 +18,19 @@ class CalculatorModel: NSObject {
         numberArray.append(currentDisplay)
         var newDisplay:Double = currentDisplay
         
+        println("numberArray1: \(numberArray)")
         if numberArray.count > 2 {
-            if let operandTwo = numberArray.last {
-                
-                //retrieve next to last element
-                var operandOne = numberArray[numberArray.count - 2]
-                newDisplay = performMath(operandOne, numTwo: operandTwo, operation: getCurrentOperator(), currentDisplay: currentDisplay)
-            }
+            //retrieve next to last element
+            var operandOne = numberArray[numberArray.count - 2]
+            newDisplay = performMath(operandOne, currentDisplay: currentDisplay, operation: getCurrentOperator())
             numberArray.append(newDisplay)
+            println("numberArray2: \(numberArray)")
         }
         
         return newDisplay
     }
     
-    func performMath(numOne:Double, numTwo:Double, operation:String, currentDisplay:Double) -> Double {
+    func performMath(numOne:Double, currentDisplay:Double, operation:String) -> Double {
         var result: Double
         
         switch operation {
@@ -39,10 +38,10 @@ class CalculatorModel: NSObject {
                 result = numOne / currentDisplay
             case "×":
                 result = numOne * currentDisplay
-            case "+":
-                result = numOne + currentDisplay
             case "−":
                 result = numOne - currentDisplay
+            case "+":
+                result = numOne + currentDisplay
             default:
                 result = currentDisplay
         }
@@ -62,4 +61,8 @@ class CalculatorModel: NSObject {
         return currentOperator
     }
     
+    func allClear() {
+       numberArray = [0.0]
+        println("numberArray is \(numberArray)")
+    }
 }
