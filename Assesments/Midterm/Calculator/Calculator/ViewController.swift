@@ -61,17 +61,18 @@ class ViewController: UIViewController {
         var allButtons = numberButtons + operatorButtons + specialButtons
         
         self.view.backgroundColor = labelColor
+        
+        //label at top
         displayLabel.frame = CGRect(x: 0, y: 0, width: labelWidth, height: labelHeight)
         displayLabel.backgroundColor = labelColor
         displayLabel.text = "0"
         displayLabel.textColor = UIColor.whiteColor()
-        //displayLabel.font = UIFont.systemFontOfSize(labelFontSize)
         displayLabel.font = UIFont(name: fontName, size: labelFontSize)
         displayLabel.textAlignment = .Right
         
-        //row 1
+        //row 1 buttons
         clearButton.frame = CGRect(x: 0, y: displayLabel.frame.maxY, width: buttonWidth, height: buttonHeight)
-        clearButton.setTitle("C", forState: .Normal)
+        clearButton.setTitle("AC", forState: .Normal)
         
         plusMinusButton.frame = CGRect(x: clearButton.frame.maxX, y: displayLabel.frame.maxY, width: buttonWidth, height: buttonHeight)
         plusMinusButton.setTitle("+/-", forState: .Normal)
@@ -82,7 +83,7 @@ class ViewController: UIViewController {
         divideButton.frame = CGRect(x: percentButton.frame.maxX, y: displayLabel.frame.maxY, width: buttonWidth, height: buttonHeight)
         divideButton.setTitle("÷", forState: .Normal)
         
-        //row 2
+        //row 2 buttons
         sevenButton.frame = CGRect(x: 0, y: clearButton.frame.maxY, width: buttonWidth, height: buttonHeight)
         sevenButton.setTitle("7", forState: .Normal)
         
@@ -95,7 +96,7 @@ class ViewController: UIViewController {
         multiplyButton.frame = CGRect(x: nineButton.frame.maxX, y: clearButton.frame.maxY, width: buttonWidth, height: buttonHeight)
         multiplyButton.setTitle("×", forState: .Normal)
         
-        //row 3
+        //row 3 buttons
         fourButton.frame = CGRect(x: 0, y: sevenButton.frame.maxY, width: buttonWidth, height: buttonHeight)
         fourButton.setTitle("4", forState: .Normal)
         fiveButton.frame = CGRect(x: fourButton.frame.maxX, y: sevenButton.frame.maxY, width: buttonWidth, height: buttonHeight)
@@ -105,7 +106,7 @@ class ViewController: UIViewController {
         subtractButton.frame = CGRect(x: sixButton.frame.maxX, y: sevenButton.frame.maxY, width: buttonWidth, height: buttonHeight)
         subtractButton.setTitle("−", forState: .Normal)
         
-        //row 4
+        //row 4 buttons
         oneButton.frame = CGRect(x: 0, y: fourButton.frame.maxY, width: buttonWidth, height: buttonHeight)
         oneButton.setTitle("1", forState: .Normal)
         twoButton.frame = CGRect(x: oneButton.frame.maxX, y: fourButton.frame.maxY, width: buttonWidth, height: buttonHeight)
@@ -115,7 +116,7 @@ class ViewController: UIViewController {
         addButton.frame = CGRect(x: threeButton.frame.maxX, y: fourButton.frame.maxY, width: buttonWidth, height: buttonHeight)
         addButton.setTitle("+", forState: .Normal)
         
-        //row 5
+        //row 5 buttons
         zeroButton.frame = CGRect(x: 0, y: oneButton.frame.maxY, width: buttonWidth * 2, height: buttonHeight)
         zeroButton.setTitle("0", forState: .Normal)
         decimalButton.frame = CGRect(x: zeroButton.frame.maxX, y: oneButton.frame.maxY, width: buttonWidth, height: buttonHeight)
@@ -123,17 +124,18 @@ class ViewController: UIViewController {
         equalButton.frame = CGRect(x: decimalButton.frame.maxX, y: oneButton.frame.maxY, width: buttonWidth, height: buttonHeight)
         equalButton.setTitle("=", forState: .Normal)
         
+        //add button views
         self.view.addSubview(displayLabel)
-        
+
         for button in allButtons {
             button.backgroundColor = buttonColor
             button.layer.borderColor = UIColor.darkGrayColor().CGColor
             button.layer.borderWidth = 0.6
-            //button.titleLabel?.font = UIFont.systemFontOfSize(buttonFontSize)
             button.titleLabel?.font = UIFont(name: fontName, size: buttonFontSize)
             self.view.addSubview(button)
         }
         
+        //assign button actions
         for button in numberButtons {
             button.addTarget(self, action: "didTapNumber:", forControlEvents: .TouchUpInside)
         }
@@ -143,7 +145,6 @@ class ViewController: UIViewController {
             button.addTarget(self, action: "didTapOperator:", forControlEvents: .TouchUpInside)
         }
         
-        //assign button actions
         clearButton.addTarget(self, action: "didTapClear:", forControlEvents: .TouchUpInside)
         decimalButton.addTarget(self, action: "didTapDecimal", forControlEvents: .TouchUpInside)
         plusMinusButton.addTarget(self, action: "didTapPlusMinus:", forControlEvents: .TouchUpInside)
@@ -160,6 +161,7 @@ class ViewController: UIViewController {
             if let currentButton = sender.titleLabel?.text {
                 let previousDisplay = tappingNumbers ? currentDisplay : ""
                 updateDisplay(previousDisplay + currentButton)
+                clearButton.setTitle("C", forState: .Normal)
                 tappingNumbers = true
             }
         }
@@ -170,17 +172,15 @@ class ViewController: UIViewController {
         if let currentDisplay = displayLabel.text {
             let previousDisplay = tappingNumbers ? currentDisplay : "0"
             if tappingNumbers {
-                println("you are in the middle of tapping numbers")
+                //in the middle of tapping
                 if currentDisplay.rangeOfString(".") == nil {
                     updateDisplay(previousDisplay + ".")
-                } else {
-                    println("you already have a decimal")
                 }
             } else {
-                println("fresh start")
+                //starting fresh
                 updateDisplay(previousDisplay + ".")
             }
-            
+            clearButton.setTitle("C", forState: .Normal)
             tappingNumbers = true
         }
     }
@@ -190,10 +190,9 @@ class ViewController: UIViewController {
             if let displayString = displayLabel.text {
                 if tappingNumbers {
                     tappingNumbers = false
+                    println("displayed: \(convertToDouble(displayString))")
                     var newDisplay = calculator.updateEquation(convertToDouble(displayString))
                     updateDisplay(convertToText(newDisplay))
-                } else {
-                    println("Not tapping numbers")
                 }
                 calculator.updateOperator(currentOperator)
             }
@@ -201,24 +200,25 @@ class ViewController: UIViewController {
     }
     
     func didTapClear(sender: UIButton) {
-        displayLabel.text = "0"
         tappingNumbers = false
-        if let currentClear = sender.titleLabel?.text {
+        
+        //determine button state
+        if let currentClear = sender.titleLabel?.text{
             if currentClear == "C" {
                 sender.setTitle("AC", forState: .Normal)
+                displayLabel.text = "0"
             } else {
-                sender.setTitle("C", forState: .Normal)
                 calculator.allClear()
             }
         }
     }
     
     func didTapPlusMinus(sender: UIButton) {
+        tappingNumbers = true
         if let currentDisplay = displayLabel.text {
             var currentDouble = convertToDouble(currentDisplay)
             if currentDouble != 0 {
                 currentDouble *= -1.0
-                println("numberArray: \(calculator.numberArray)")
                 updateDisplay(convertToText(currentDouble))
             }
             
@@ -226,6 +226,7 @@ class ViewController: UIViewController {
     }
     
     func didTapPercent() {
+        tappingNumbers = true
         if let currentDisplay = displayLabel.text {
             var newDisplay = convertToDouble(currentDisplay) / 100
             updateDisplay(convertToText(newDisplay))
@@ -235,7 +236,6 @@ class ViewController: UIViewController {
     // Data conversions
     func convertToDouble(str:String) -> Double {
         var displayDouble = (str as NSString).doubleValue
-        
         return displayDouble
     }
     
@@ -247,7 +247,6 @@ class ViewController: UIViewController {
         if displayText.hasSuffix(".0") {
             displayText = dropLast(dropLast(displayText))
         }
-        
         return displayText
     }
     

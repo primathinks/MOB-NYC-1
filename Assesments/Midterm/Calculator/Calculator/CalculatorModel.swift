@@ -13,36 +13,35 @@ class CalculatorModel: NSObject {
     var numberArray:[Double] = [0.0]
     var operatorArray = [String]()
     
+    //Does NOT adhere to PEMDAS
     func updateEquation(currentDisplay:Double) -> Double {
         
         numberArray.append(currentDisplay)
         var newDisplay:Double = currentDisplay
         
+        //println("numberArray: \(numberArray)")
         if numberArray.count > 2 {
-            if let operandTwo = numberArray.last {
-                
-                //retrieve next to last element
-                var operandOne = numberArray[numberArray.count - 2]
-                newDisplay = performMath(operandOne, numTwo: operandTwo, operation: getCurrentOperator(), currentDisplay: currentDisplay)
-            }
+            //retrieve next to last element
+            var storedValue = numberArray[numberArray.count - 2]
+            newDisplay = performMath(storedValue, currentDisplay: currentDisplay, operation: getCurrentOperator())
             numberArray.append(newDisplay)
         }
         
         return newDisplay
     }
     
-    func performMath(numOne:Double, numTwo:Double, operation:String, currentDisplay:Double) -> Double {
+    func performMath(storedValue:Double, currentDisplay:Double, operation:String) -> Double {
         var result: Double
         
         switch operation {
         case "÷":
-            result = numOne / currentDisplay
+            result = storedValue / currentDisplay
         case "×":
-            result = numOne * currentDisplay
+            result = storedValue * currentDisplay
         case "+":
-            result = numOne + currentDisplay
+            result = storedValue + currentDisplay
         case "−":
-            result = numOne - currentDisplay
+            result = storedValue - currentDisplay
         default:
             result = currentDisplay
         }
@@ -51,7 +50,6 @@ class CalculatorModel: NSObject {
     
     func updateOperator(operation:String) {
         operatorArray.append(operation)
-        println("operatorArray: \(operatorArray)")
     }
     
     func getCurrentOperator() -> String {
@@ -64,8 +62,8 @@ class CalculatorModel: NSObject {
     
     func allClear() {
         numberArray = [0.0]
-        operatorArray.removeAll(keepCapacity: false)
         println("numberArray: \(numberArray)")
+        operatorArray.removeAll(keepCapacity: false)
     }
     
 }
