@@ -201,11 +201,11 @@ class ViewController: UIViewController {
     }
     
     func didTapClear(sender: UIButton) {
+        displayLabel.text = "0"
         tappingNumbers = false
         if let currentClear = sender.titleLabel?.text {
             if currentClear == "C" {
                 sender.setTitle("AC", forState: .Normal)
-                displayLabel.text = "0"
             } else {
                 sender.setTitle("C", forState: .Normal)
                 calculator.allClear()
@@ -218,7 +218,7 @@ class ViewController: UIViewController {
             var currentDouble = convertToDouble(currentDisplay)
             if currentDouble != 0 {
                 currentDouble *= -1.0
-                calculator.numberArray.append(currentDouble)
+                println("numberArray: \(calculator.numberArray)")
                 updateDisplay(convertToText(currentDouble))
             }
             
@@ -228,7 +228,6 @@ class ViewController: UIViewController {
     func didTapPercent() {
         if let currentDisplay = displayLabel.text {
             var newDisplay = convertToDouble(currentDisplay) / 100
-            calculator.numberArray.append(newDisplay)
             updateDisplay(convertToText(newDisplay))
         }
     }
@@ -251,13 +250,12 @@ class ViewController: UIViewController {
         
         return displayText
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
-
