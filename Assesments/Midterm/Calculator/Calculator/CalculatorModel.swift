@@ -19,7 +19,6 @@ class CalculatorModel: NSObject {
         numberArray.append(currentDisplay)
         var newDisplay:Double = currentDisplay
         
-        //println("numberArray: \(numberArray)")
         if numberArray.count > 2 {
             //retrieve next to last element
             var storedValue = numberArray[numberArray.count - 2]
@@ -62,7 +61,6 @@ class CalculatorModel: NSObject {
     
     func allClear() {
         numberArray = [0.0]
-        println("numberArray: \(numberArray)")
         operatorArray.removeAll(keepCapacity: false)
     }
     

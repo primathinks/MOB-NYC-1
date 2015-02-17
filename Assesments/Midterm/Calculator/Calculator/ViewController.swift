@@ -190,7 +190,6 @@ class ViewController: UIViewController {
             if let displayString = displayLabel.text {
                 if tappingNumbers {
                     tappingNumbers = false
-                    println("displayed: \(convertToDouble(displayString))")
                     var newDisplay = calculator.updateEquation(convertToDouble(displayString))
                     updateDisplay(convertToText(newDisplay))
                 }
