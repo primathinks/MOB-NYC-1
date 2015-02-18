@@ -13,14 +13,14 @@ class CalculatorModel: NSObject {
     var numberArray:[Double] = [0.0]
     var operatorArray = [String]()
     
-    //Does NOT adhere to PEMDAS
+    // Does NOT adhere to PEMDAS
     func updateEquation(currentDisplay:Double) -> Double {
         
         numberArray.append(currentDisplay)
         var newDisplay:Double = currentDisplay
         
         if numberArray.count > 2 {
-            //retrieve next to last element
+            // Retrieve next to last element
             var storedValue = numberArray[numberArray.count - 2]
             newDisplay = performMath(storedValue, currentDisplay: currentDisplay, operation: getCurrentOperator())
             numberArray.append(newDisplay)
