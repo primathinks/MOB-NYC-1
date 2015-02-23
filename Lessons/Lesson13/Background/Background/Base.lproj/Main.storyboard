@@ -43,6 +43,11 @@
                             <constraint firstItem="TUv-1D-e2X" firstAttribute="top" secondItem="Sc9-uk-MWe" secondAttribute="bottom" constant="17" id="Zku-va-paN"/>
                             <constraint firstAttribute="centerY" secondItem="Sc9-uk-MWe" secondAttribute="centerY" id="eJm-jw-1pi"/>
                         </constraints>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Zku-va-paN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="backgroundSwitch" destination="Sc9-uk-MWe" id="vIc-np-FAC"/>
