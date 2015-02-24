@@ -59,6 +59,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="VtZ-2D-jh4">
+                        <barButtonItem key="leftBarButtonItem" title="Save" id="e0b-IA-Qer">
+                            <connections>
+                                <action selector="didSaveButton:" destination="vXZ-lx-hvc" id="KBI-Xc-RGL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="U0N-LQ-6jw">
                             <connections>
                                 <action selector="didTapAdd:" destination="vXZ-lx-hvc" id="Xuu-aM-OYF"/>
