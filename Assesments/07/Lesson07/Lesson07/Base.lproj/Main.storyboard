@@ -243,6 +243,9 @@
                             <constraint firstItem="e66-bG-ZBU" firstAttribute="top" secondItem="qPA-4h-ilE" secondAttribute="bottom" id="wFw-wb-w01"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="SixthTextView" destination="qPA-4h-ilE" id="hk1-g9-VXv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oU3-RH-uDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -260,10 +263,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBD-AK-qjV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="r e a d m e" translatesAutoresizingMaskIntoConstraints="NO" id="nBD-AK-qjV">
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">TODO Five: Strings can be entered into this text box in a space-delimited fashion. They represent an array of strings. E.g. the entry "a b c" corresponds to array ["a", "b", "c"]. Save the array of strings that corresponds to the text in this text box to a file.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -283,6 +285,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="FifthTextView" destination="nBD-AK-qjV" id="4Ab-FJ-vKv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsy-el-VFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
