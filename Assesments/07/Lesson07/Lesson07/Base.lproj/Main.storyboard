@@ -142,9 +142,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="TODO three: Save the text in this text box to a flat file when 'next' is pressed." translatesAutoresizingMaskIntoConstraints="NO" id="zba-PB-Qsj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zba-PB-Qsj">
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lucas ipsum dolor sit amet trandoshan meridian klaatu latter windu jabiimas mirialan tano mara skakoan. Baba skywalker taung nute warrick.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -160,10 +161,14 @@
                     <navigationItem key="navigationItem" id="W4c-fq-GLh">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="BAS-oR-Hjw">
                             <connections>
+                                <action selector="didTapNext:" destination="lWA-Qe-LpN" id="zFs-RC-aVU"/>
                                 <segue destination="03b-O5-o7r" kind="show" id="oNc-T8-vY0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ThirdTextView" destination="zba-PB-Qsj" id="CL0-We-Yfn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JI4-wm-MiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,6 +208,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="FourthTextView" destination="sLH-y3-8UM" id="xgk-dL-69m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdY-tK-zGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
