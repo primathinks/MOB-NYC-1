@@ -11,6 +11,7 @@ import UIKit
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var secondTextView: UITextView!
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     //Go To Settings
     @IBAction func didTapSettings(sender: AnyObject) {
@@ -23,8 +24,12 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let sliderValue = NSUserDefaults.standardUserDefaults().floatForKey("settings_slider")
-        if let name = NSUserDefaults.standardUserDefaults().stringForKey("settings_name") {
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let sliderValue = userDefaults.floatForKey("settings_slider")
+        if let name = userDefaults.stringForKey("settings_name") {
             secondTextView.text = "Name: \(name) \nSlider Value: \(sliderValue)"
         } else {
             secondTextView.text = "Please update your settings."

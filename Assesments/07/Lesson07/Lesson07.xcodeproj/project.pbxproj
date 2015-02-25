@@ -18,6 +18,7 @@
 		5D1F7FB519DB2F130017441C /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F7FB419DB2F130017441C /* FifthViewController.swift */; };
 		5D1F7FB719DB2F1A0017441C /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F7FB619DB2F1A0017441C /* SixthViewController.swift */; };
 		5D1F7FBA19DB36710017441C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D1F7FB919DB36710017441C /* Settings.bundle */; };
+		DBDB33FF1A9E329600CB6163 /* flat.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DBDB33FE1A9E329600CB6163 /* flat.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		5D1F7FB419DB2F130017441C /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		5D1F7FB619DB2F1A0017441C /* SixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
 		5D1F7FB919DB36710017441C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		DBDB33FE1A9E329600CB6163 /* flat.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = flat.rtf; sourceTree = "<group>"; };
 		F86271BE844E497982D7495F /* libPods-Lesson07.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lesson07.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 				5D1F7F9219DB24CF0017441C /* Main.storyboard */,
 				5D1F7F9519DB24CF0017441C /* Images.xcassets */,
 				5D1F7F8C19DB24CF0017441C /* Supporting Files */,
+				DBDB33FE1A9E329600CB6163 /* flat.rtf */,
 			);
 			path = Lesson07;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D1F7F9419DB24CF0017441C /* Main.storyboard in Resources */,
+				DBDB33FF1A9E329600CB6163 /* flat.rtf in Resources */,
 				5D1F7FBA19DB36710017441C /* Settings.bundle in Resources */,
 				5D1F7F9619DB24CF0017441C /* Images.xcassets in Resources */,
 			);

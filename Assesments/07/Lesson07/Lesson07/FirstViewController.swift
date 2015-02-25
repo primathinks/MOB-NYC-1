@@ -11,19 +11,20 @@ import UIKit
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var FirstTextView: UITextView!
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSUserDefaults.standardUserDefaults().setValue("Hello World", forKey: "test_string")
-        NSUserDefaults.standardUserDefaults().setInteger(2015, forKey: "test_number")
+        userDefaults.setValue("The answer to life the universe and everything", forKey: "test_string")
+        userDefaults.setInteger(42, forKey: "test_number")
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let num = NSUserDefaults.standardUserDefaults().integerForKey("test_number")
+        let num = userDefaults.integerForKey("test_number")
         
-        if let str = NSUserDefaults.standardUserDefaults().stringForKey("test_string") {
+        if let str = userDefaults.stringForKey("test_string") {
             FirstTextView.text = "\(str) \n\(num)"
         }
         
