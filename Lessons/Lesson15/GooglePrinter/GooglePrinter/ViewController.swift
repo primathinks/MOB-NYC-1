@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +18,18 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        if let url = NSURL(string: "http://google.com") {
+        if let url = NSURL(string: "http://www.foooogle.com/") {
             let task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
-                var string = NSString(data: data, encoding: NSUTF8StringEncoding)
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.textView.text = string
-                })
+                
+//                var string = NSString(data: data, encoding: NSUTF8StringEncoding)
+               
+                if let writeError = error {
+                    println(writeError.localizedDescription)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.textView.text = "SORRY!!! \n\(writeError.localizedDescription)"
+                    })
+                } // end writeEroor
+                
             })
             task.resume()
         }
