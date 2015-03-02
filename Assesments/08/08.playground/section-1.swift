@@ -46,7 +46,7 @@ if let urlTwo = NSURL(string: "http://generalassemb.ly/foobar.baz") {
         println(response)
         
         if let writeError = error {
-            println(writeError.code)
+            println("Status Code: \(writeError.code)")
             println("Error: \(writeError.localizedDescription)")
         }
     }) //end taskTwo
@@ -139,6 +139,6 @@ if let urlThree = NSURL(string: "http://api.openweathermap.org/data/2.5/weather?
 
 // Not successful in using SwiftyJSON in Playground
 // Used Cocoapods in Xcode project instead
-// Open 
+// Open ToDoFour.xcworkspace
 
 
